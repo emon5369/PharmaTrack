@@ -1,12 +1,13 @@
 import Navbar from "./components/Navbar"
-import HomePage from "./pages/HomePage"
+import AppRoutes from "./routes/Approutes"
 
 function App() {
 
   return (
     <>
       <Navbar />
-      <HomePage />
+      <AppRoutes />
+      
     </>
   )
 }

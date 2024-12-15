@@ -1,11 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
-import AdminDashboard from "../pages/admin/Dashboard";
-import PharmacistDashboard from "../pages/pharmacist/Dashboard";
-import CustomerDashboard from "../pages/customer/Dashboard";
+// import AdminDashboard from "../pages/admin/Dashboard";
+// import PharmacistDashboard from "../pages/pharmacist/Dashboard";
+// import CustomerDashboard from "../pages/customer/Dashboard";
 
-const AppRoutes = ({ userRole }) => {
+const getUserRole = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    return user ? user.Role : null;
+};
+const AppRoutes = () => {
+    const userRole = getUserRole();
     return (
         <Routes>
             {/* Public Routes */}
