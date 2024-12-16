@@ -1,8 +1,28 @@
+// import axios from "axios";
+
+// const BASE_URL = "http://localhost/pharmatrack_backend/public"; // Replace with your backend URL
+
+// export const loginUser = async (credentials) => {
+//     const response = await axios.post(`${BASE_URL}/login.php`, credentials, {
+//         headers: { "Content-Type": "application/json" },
+//     });
+//     return response;
+// };
+
+// export const fetchStats = async () => {
+
+//     const response = await axios.get(`${BASE_URL}/admin-stats.php`, {
+//         headers: { "Content-Type": "application/json" },
+//     });
+
+//     return response;
+// };
+
 import axios from "axios";
 
 // Create an Axios instance
 const apiClient = axios.create({
-    baseURL: "http://localhost/pharmatrack", // Base backend URL
+    baseURL: "http://localhost/pharmatrack_backend/public", // Base backend URL
     headers: {
         "Content-Type": "application/json",
     },

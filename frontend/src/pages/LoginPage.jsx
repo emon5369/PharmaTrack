@@ -12,6 +12,12 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             const response = await loginUser({ email, password });
+            const { role, userID, name } = response.data;
+
+            // Store user data in localStorage for session management
+            localStorage.setItem("userID", userID);
+            localStorage.setItem("role", role);
+            localStorage.setItem("userName", name);
 
             if (response.data.success) {
                 // Store user details in localStorage
