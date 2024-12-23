@@ -1,28 +1,8 @@
-// import axios from "axios";
-
-// const BASE_URL = "http://localhost/pharmatrack_backend/public"; // Replace with your backend URL
-
-// export const loginUser = async (credentials) => {
-//     const response = await axios.post(`${BASE_URL}/login.php`, credentials, {
-//         headers: { "Content-Type": "application/json" },
-//     });
-//     return response;
-// };
-
-// export const fetchStats = async () => {
-
-//     const response = await axios.get(`${BASE_URL}/admin-stats.php`, {
-//         headers: { "Content-Type": "application/json" },
-//     });
-
-//     return response;
-// };
-
 import axios from "axios";
 
 // Create an Axios instance
 const apiClient = axios.create({
-    baseURL: "http://localhost/pharmatrack_backend/public", // Base backend URL
+    baseURL: "http://localhost/Pharmatrack-Test/Backend", // Base backend URL
     headers: {
         "Content-Type": "application/json",
     },
@@ -30,7 +10,7 @@ const apiClient = axios.create({
 
 // USER APIs
 export const loginUser = async (credentials) => {
-    return apiClient.post("/login.php", credentials);
+    return apiClient.post("/login_user.php", credentials);
 };
 
 export const fetchUserDetails = async (userID) => {
@@ -52,7 +32,11 @@ export const generateReport = async () => {
 
 // PHARMACIST APIs
 export const fetchInventory = async () => {
-    return apiClient.get("/pharmacist/inventory.php");
+    return apiClient.get("/manage_medicine.php");
+};
+
+export const fetchMedicinesForSale = async () => {
+    return apiClient.get("/manage_medicine.php"); // Define the endpoint for fetching medicines for sale
 };
 
 export const addPrescription = async (data) => {

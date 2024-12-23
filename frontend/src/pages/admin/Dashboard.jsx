@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
 // import axios from "../../services/api";
 
-const Dashboard = () => {
+    const Dashboard = () => {
     const [stats, setStats] = useState({
         totalSales: 0,
         lowStockItems: 0,

@@ -11,28 +11,34 @@ const LoginPage = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
+            console.log("Attempting login with credentials:", { email, password });
             const response = await loginUser({ email, password });
-            const { role, userID, name } = response.data;
+            console.log("Login response:", response);
+
+            const { role, userID, name } = response.data.user;
 
             // Store user data in localStorage for session management
             localStorage.setItem("userID", userID);
             localStorage.setItem("role", role);
             localStorage.setItem("userName", name);
 
-            if (response.data.success) {
+            console.log("Login response structure:", response.data);
+            if (response.data.status === 'success') {
                 // Store user details in localStorage
                 localStorage.setItem("user", JSON.stringify(response.data.user));
                 alert("Login successful!");
-            }else{
+
+                console.log("Navigating to:", role === "Admin" ? "/admin/dashboard" : role === "Pharmacist" ? "/pharmacist/dashboard" : "/customer/dashboard");
+
+                if (role === "Admin") navigate("/admin/dashboard");
+                else if (role === "Pharmacist") navigate("/pharmacist/dashboard");
+                else if (role === "Customer") navigate("/customer/dashboard");
+                else throw new Error("Invalid role.");
+            } else {
                 setError(response.data.message);
             }
-
-            // Redirect user based on role
-            if (role === "Admin") navigate("/admin/dashboard");
-            else if (role === "Pharmacist") navigate("/pharmacist/dashboard");
-            else if (role === "Customer") navigate("/customer/dashboard");
-            else throw new Error("Invalid role.");
         } catch (err) {
+            console.error("Login error:", err);
             setError("Login failed. Please check your credentials.");
         }
     };

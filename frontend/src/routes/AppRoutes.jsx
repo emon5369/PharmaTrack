@@ -7,21 +7,22 @@ import AdminDashboard from "../pages/admin/Dashboard";
 
 const getUserRole = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    return user ? user.Role : null;
+    return user ? user.role : null;
 };
 const AppRoutes = () => {
     const userRole = getUserRole();
+    console.log("User Role:", userRole);
     return (
         <Routes>
             {/* Public Routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            
+            {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
+
             {/* Admin Routes */}
-            {/* {userRole === "Admin" && (
+            {userRole === "Admin" && (
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            )} */}
+            )}
 
             {/* Pharmacist Routes */}
             {userRole === "Pharmacist" && (

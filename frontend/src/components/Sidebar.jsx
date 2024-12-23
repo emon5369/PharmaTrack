@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Sidebar = ({ role }) => {
+const Sidebar = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem("userName") || "User";
     const userRole = localStorage.getItem("role") || role;
@@ -38,7 +38,7 @@ const Sidebar = ({ role }) => {
 
             {/* Navigation Links */}
             <ul className="flex-1">
-                {links[role].map((link, index) => (
+                {links[userRole].map((link, index) => (
                     <li key={index} className="py-2">
                         <NavLink
                             to={link.path}
