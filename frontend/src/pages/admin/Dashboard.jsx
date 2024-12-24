@@ -31,18 +31,18 @@ import Sidebar from "../../components/Sidebar";
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="bg-white p-6 rounded-lg shadow">
                         <h2 className="text-xl font-bold">Total Sales</h2>
-                        <p className="text-2xl mt-4">${stats.totalSales}</p>
-                        {/* <p className="text-2xl mt-4">BDT 5000</p> */}
+                        {/*<p className="text-2xl mt-4">BDT{stats.totalSales}</p>*/}
+                         <p className="text-2xl mt-4">BDT 5000</p> 
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow">
                         <h2 className="text-xl font-bold">Low Stock Items</h2>
-                        <p className="text-2xl mt-4">{stats.lowStockItems}</p>
-                        {/* <p className="text-2xl mt-4">5</p> */}
+                        {/* <p className="text-2xl mt-4">{stats.lowStockItems}</p> */}
+                        <p className="text-2xl mt-4">5</p>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow">
                         <h2 className="text-xl font-bold">Expenses</h2>
-                        <p className="text-2xl mt-4">${stats.expenses}</p>
-                        {/* <p className="text-2xl mt-4">BDT 300</p> */}
+                        {/* <p className="text-2xl mt-4">BDT{stats.expenses}</p> */}
+                        <p className="text-2xl mt-4">BDT 300</p>
                     </div>
                 </div>
             </div>
