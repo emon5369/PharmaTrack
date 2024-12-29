@@ -1,15 +1,20 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from '../context/AuthContext';
+import { useContext } from "react";
 
 const Sidebar = () => {
+    const { logout } = useContext(AuthContext);
     const navigate = useNavigate();
     const userName = localStorage.getItem("userName") || "User";
-    const userRole = localStorage.getItem("role") || role;
+    const userRole = localStorage.getItem("role") || "Role"; 
 
     const links = {
         Admin: [
             { name: "Dashboard", path: "/admin/dashboard" },
-            { name: "Manage Users", path: "/admin/manage-users" },
+            { name: "Manage Users", path: "/admin/manage_users" },
+            { name: "Manage Suppliers", path: "/admin/manage_suppliers" },
             { name: "Expenses", path: "/admin/expenses" },
+            { name: "Reports", path: "/admin/reports" },    
         ],
         Pharmacist: [
             { name: "Dashboard", path: "/pharmacist/dashboard" },
@@ -24,12 +29,13 @@ const Sidebar = () => {
     };
 
     const handleLogout = () => {
-        localStorage.clear();
+        logout();
         navigate("/login");
+        window.location.reload();    
     };
 
     return (
-        <div className="h-screen w-64 bg-blue-800 text-white flex flex-col">
+        <div className="h-100% w-64 bg-blue-800 text-white flex flex-col">
             {/* User Info */}
             <div className="py-6 px-4 text-center">
                 <h2 className="text-xl font-bold">{userName}</h2>

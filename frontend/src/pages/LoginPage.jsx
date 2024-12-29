@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../services/api";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext"; // Import AuthContext
 
 const LoginPage = () => {
+    const { login } = useContext(AuthContext); // Get login function from context
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -12,20 +14,20 @@ const LoginPage = () => {
         e.preventDefault();
         try {
             console.log("Attempting login with credentials:", { email, password });
-            const response = await loginUser({ email, password });
+            const response = await login({ email, password });
             console.log("Login response:", response);
 
-            const { role, userID, name } = response.data.user;
+            const { role, userID, name } = response.user;
 
             // Store user data in localStorage for session management
             localStorage.setItem("userID", userID);
             localStorage.setItem("role", role);
             localStorage.setItem("userName", name);
 
-            console.log("Login response structure:", response.data);
-            if (response.data.status === 'success') {
+            console.log("Login response structure:", response);
+            if (response.status === 'success') {
                 // Store user details in localStorage
-                localStorage.setItem("user", JSON.stringify(response.data.user));
+                localStorage.setItem("user", JSON.stringify(response.user));
                 alert("Login successful!");
 
                 console.log("Navigating to:", role === "Admin" ? "/admin/dashboard" : role === "Pharmacist" ? "/pharmacist/dashboard" : "/customer/dashboard");
@@ -79,6 +81,12 @@ const LoginPage = () => {
                 >
                     Login
                 </button>
+                <p className="text-center text-gray-600 text-sm mt-4"> Don't have an account?
+                    <Link to="/register" className="text-blue-500 hover:text-blue-700">
+                        Sign up
+                    </Link>
+                </p>
+
             </form>
         </div>
     );
