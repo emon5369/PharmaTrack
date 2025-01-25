@@ -3,6 +3,7 @@
 ## **Introduction**
 
 PharmaTrack is a scalable, user-friendly web application designed to streamline pharmacy operations. It provides tools for managing inventory, prescriptions, sales, expenses, and supplier information. With role-based access for Admins, Pharmacists, and Customers, the system ensures efficient workflows and secure data handling. Additionally, the platform features an online store for customers to browse and purchase medicines conveniently.
+
 ---
 
 ## **Features**
