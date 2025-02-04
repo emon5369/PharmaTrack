@@ -103,9 +103,14 @@ Automated sales tracking and invoice generation for online orders.
 
 ## **Screenshots**
 
-   - Home page:
-     ![image](https://github.com/user-attachments/assets/9eacfdbd-1453-4b68-a520-17942a485db0)
+   - Home Page:
+     ![image](https://github.com/user-attachments/assets/06d24008-655a-43ac-8e0f-08b3827b6ba7)
 
+   - Cart Page:
+     ![image](https://github.com/user-attachments/assets/ef9a7605-57a0-4ef2-8e01-246fa02a087f)
+
+   - Invoice:
+     ![image](https://github.com/user-attachments/assets/4d9215dc-17af-4f92-a49c-7d200ff8b4ae)
 
    - Admin Dashboard:
      ![image](https://github.com/user-attachments/assets/2ce6d398-2d9c-451b-98fb-2b5732e54cc4)
@@ -113,9 +118,11 @@ Automated sales tracking and invoice generation for online orders.
    - Pharmacist Dashboard:
      ![image](https://github.com/user-attachments/assets/f0029726-b289-4003-bccc-a7b5f22e2e83)
 
-
    - Customer Dashboard:
      ![image](https://github.com/user-attachments/assets/05595e5f-bd99-4c20-9d85-4eadced8efb6)
+
+   - Report:
+     ![image](https://github.com/user-attachments/assets/3377a1b9-2414-4978-b1cf-54df305597f9)
 
 ---
 
