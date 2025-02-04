@@ -7,9 +7,7 @@ import PropTypes from "prop-types"; // Import PropTypes for prop validation
 
 const HomePage = () => {
     const [medicines, setMedicines] = useState([]);
-    const [loading, setLoading] = useState(true);
-    
-    // Access cart context
+    const [loading, setLoading] = useState(true);   
     const { cart, setCart } = useContext(cartContext); // Use context to get cart and setCart
 
     useEffect(() => {
@@ -43,9 +41,9 @@ const HomePage = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4 text-center flex justify-between">
+            <h1 className="text-3xl font-bold mb-3 text-center flex justify-between">
                 <span>Available Medicines</span>
-                <Link to="/cart" className="text-lg font-semibold hover:font-bold text-slate-500 hover:text-green-600 border rounded-md p-2"> 🛒Cart: {cart.length} items</Link> {/* Update cart count */}
+                <Link to="/cart" className="text-xl font-bold text-slate-500 hover:bg-slate-200 hover:text-green-600 border rounded-md p-2"> 🛒Cart: {cart.length} items</Link> {/* Update cart count */}
             </h1>
             {loading ? (
                 <p className="text-center">Loading...</p>
@@ -53,34 +51,26 @@ const HomePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {medicines.map((medicine) => (
                         <div
-                            key={medicine.ItemID}
-                            className="border rounded-md p-4 shadow hover:shadow-lg transition"
+                        key={medicine.ItemID}
+                        className="border rounded-lg p-6 shadow-lg bg-white hover:bg-blue-50 hover:shadow-xl transition-all"
+                    >
+                        <h2 className="text-xl font-semibold text-indigo-700">{medicine.Name}</h2>
+                        <p className="text-gray-800 mt-2">Category: <span className="font-medium">{medicine.Category}</span></p>
+                        <p className="text-gray-800">Price: <span className="font-medium text-green-600">BDT {medicine.Price}</span></p>
+                        {/* <p className="text-gray-600">Quantity: {medicine.Quantity}</p> */}
+                        <button
+                            onClick={() => addToCart(medicine)}
+                            className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-md"
                         >
-                            <h2 className="text-xl font-semibold">
-                                {medicine.Name}
-                            </h2>
-                            <p className="text-gray-700">
-                                Category: {medicine.Category}
-                            </p>
-                            <p className="text-gray-700">
-                                Price: BDT {medicine.Price}
-                            </p>
-                            {/* <p className="text-gray-700">
-                                Quantity Available: {medicine.Quantity}
-                            </p> */}
-                            <button
-                                onClick={() => addToCart(medicine)} // Ensure this line is present
-                                className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-                            >
-                                Add to Cart
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <p className="text-center text-red-500">
-                    No medicines are available for sale.
-                </p>
+                            Add to Cart
+                        </button>
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <p className="text-center text-red-600 font-semibold">
+                No medicines are currently available for sale.
+            </p>
             )}
         </div>
     );

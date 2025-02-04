@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import PropTypes from "prop-types"; // Import PropTypes for prop validation
-import { cartContext } from "../context/cartContext"; // Import cartContext
-
-import { recordSale } from "../services/api"; // Import recordSale function (ensure it's used)
+import { useContext, useState } from "react";
+import { cartContext } from "../context/cartContext"; 
+import { recordSale } from "../services/api"; // Import recordSale function 
+import SuccessModal from '../components/SuccessModal'; // Import the SuccessModal
 
 const CartPage = () => {
     const { cart, setCart } = useContext(cartContext); // Access cart context
+    const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
 
     const increaseQuantity = (item) => {
         setCart((prevCart) => {
@@ -49,8 +49,8 @@ const CartPage = () => {
                 };
                 const response = await recordSale(saleData); // Call recordSale with item data
                 console.log("Purchase successful!", response.data);
-                alert("Purchase successful!");
-                setCart([]);
+                setCart([]); // Clear the cart
+                setIsModalOpen(true); // Show the modal
             }
         } catch (error) {
             console.error("Error recording sale:", error); // Log error message
@@ -61,7 +61,7 @@ const CartPage = () => {
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4 text-center">Your Cart</h1>
             {cart.length === 0 ? (
-                <p className="text-center text-red-500">Your cart is empty.</p>
+                <p className="text-center text-xl text-red-500">Your cart is empty</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {cart.map((item, index) => (
@@ -95,17 +95,14 @@ const CartPage = () => {
             )}
             <h2 className="text-xl font-semibold mt-4">Total Amount: BDT {totalAmount.toFixed(2)}</h2>
             <button
-                onClick={handlePurchase} // Purchase button
+                onClick={handlePurchase}
                 className="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
             >
                 Confirm Purchase
             </button>
+            <SuccessModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
-};
-
-CartPage.propTypes = {
-    cartItems: PropTypes.array.isRequired, // Validate that cartItems is an array
 };
 
 export default CartPage;

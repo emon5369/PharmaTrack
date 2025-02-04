@@ -82,11 +82,17 @@ const LoginPage = () => {
                     Login
                 </button>
                 <p className="text-center text-gray-600 text-sm mt-4"> Don't have an account?
-                    <Link to="/register" className="text-blue-500 hover:text-blue-700">
+                    <Link to="/register" className="text-blue-500 hover:underline">
                         Sign up
                     </Link>
                 </p>
-
+                <button
+                    type="button"
+                    onClick={() => navigate("/")}
+                    className="w-full bg-gray-300 text-black py-2 rounded hover:bg-gray-400 mt-4"
+                >
+                    Return to Home
+                </button>
             </form>
         </div>
     );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../services/api';
 
 const RegisterPage = () => {
@@ -88,6 +88,7 @@ const RegisterPage = () => {
                     >
                         Sign up
                     </button>
+                    <p>Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</ Link></p>
                 </form>
             </div>
         </div>
