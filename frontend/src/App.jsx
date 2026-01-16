@@ -5,11 +5,13 @@ import { AuthProvider } from './context/AuthContext'; // Import AuthProvider
 
 function App() {
     return (
-        <AuthProvider> {/* Wrap Navbar with AuthProvider */}
+        <div className="flex flex-col max-h-screen">
+            <AuthProvider> {/* Wrap Navbar with AuthProvider */}
             <Navbar />
             <AppRoutes />
             <Footer />
         </AuthProvider>
+        </div>
     );
 }
 

@@ -13,20 +13,20 @@ const Navbar = () => {
     }, [isLoggedIn]);
 
     return (
-        <nav className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-lg">
-            <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <nav className="sticky top-0 z-10 bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-lg">
+            <div className="container mx-auto flex justify-between items-center py-3 px-4">
                 {/* Logo */}
-                <h1 className="text-3xl font-extrabold tracking-wide">
+                <h1 className="text-3xl font-extrabold ">
                     <Link to="/" className="hover:text-gray-200">
-                        PharmaTrack
+                        💊PharmaTrack
                     </Link>
                 </h1>
 
                 {/* Navigation Links */}
-                <ul className="flex space-x-8 text-lg font-medium">
+                <ul className="flex items-center space-x-8 font-semibold">
                     {userRole === "Customer" && (
                         <li>
-                            <Link to="/" className="hover:text-yellow-300 transition">
+                            <Link to="/" className="hover:text-yellow-400 transition">
                                 Home
                             </Link>
                         </li>
@@ -37,7 +37,7 @@ const Navbar = () => {
                                 <li>
                                     <Link
                                         to="/admin/dashboard"
-                                        className="hover:text-yellow-300 transition"
+                                        className="hover:text-yellow-400 transition"
                                     >
                                         Admin Dashboard
                                     </Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                 <li>
                                     <Link
                                         to="/pharmacist/dashboard"
-                                        className="hover:text-yellow-300 transition"
+                                        className="hover:text-yellow-400 transition"
                                     >
                                         Pharmacist Dashboard
                                     </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
                                 <li>
                                     <Link
                                         to="/customer/dashboard"
-                                        className="hover:text-yellow-300 transition"
+                                        className="hover:text-yellow-400 transition"
                                     >
                                         Customer Dashboard
                                     </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
                                         navigate("/login");
                                         window.location.reload(); // Reset the app state
                                     }}
-                                    className="hover:text-red-300 transition"
+                                    className="hover:bg-red-500 transition border px-3 py-1 rounded-2xl"
                                 >
                                     Logout
                                 </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
                         </>
                     ) : (
                         <li>
-                            <Link to="/login" className="hover:text-yellow-300 transition">
+                            <Link to="/login" className="hover:bg-green-500 transition border px-4 py-2 rounded-3xl">
                                 Login
                             </Link>
                         </li>
