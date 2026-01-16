@@ -104,22 +104,22 @@ Automated sales tracking and invoice generation for online orders.
 ## **Screenshots**
 
    - Home Page:
-     ![image](https://github.com/user-attachments/assets/06d24008-655a-43ac-8e0f-08b3827b6ba7)
+     <img width="1350" height="671" alt="home" src="https://github.com/user-attachments/assets/0ea59d45-e56d-4ba9-b09d-b90993743176" />
 
    - Cart Page:
-     ![image](https://github.com/user-attachments/assets/ef9a7605-57a0-4ef2-8e01-246fa02a087f)
+     <img width="1365" height="679" alt="cart" src="https://github.com/user-attachments/assets/94a984cb-73a3-4517-bbc2-920a065f81e9" />
 
    - Invoice:
      ![image](https://github.com/user-attachments/assets/4d9215dc-17af-4f92-a49c-7d200ff8b4ae)
 
    - Admin Dashboard:
-     ![image](https://github.com/user-attachments/assets/2ce6d398-2d9c-451b-98fb-2b5732e54cc4)
+     <img width="1365" height="678" alt="admin" src="https://github.com/user-attachments/assets/e48407de-e8bd-40c8-b48e-24ba54ba3a5f" />
 
    - Pharmacist Dashboard:
-     ![image](https://github.com/user-attachments/assets/f0029726-b289-4003-bccc-a7b5f22e2e83)
+     <img width="1365" height="675" alt="Pharmacist" src="https://github.com/user-attachments/assets/2b646020-ec9c-4d10-8375-42b5a3f386f2" />
 
    - Customer Dashboard:
-     ![image](https://github.com/user-attachments/assets/05595e5f-bd99-4c20-9d85-4eadced8efb6)
+     <img width="1365" height="679" alt="customer" src="https://github.com/user-attachments/assets/143163c3-fd1d-454b-b07f-c9a611a1fc51" />
 
    - Report:
      ![image](https://github.com/user-attachments/assets/3377a1b9-2414-4978-b1cf-54df305597f9)
